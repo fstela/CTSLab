@@ -16,7 +16,7 @@ public class Main {
 		Account[] accounts = new Account[2];
 		accounts[0] = account;
 		accounts[1] = account2;
-		double totalFee = BrokerService.calculateTotalBrokerFee(accounts);
+		double totalFee = BrokerService.calculateTotalFee(accounts);
 		System.out.println(totalFee);
 	}
 

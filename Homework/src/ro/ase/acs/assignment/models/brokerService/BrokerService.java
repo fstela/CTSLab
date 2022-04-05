@@ -8,7 +8,8 @@ public class BrokerService {
 
 	static final double BROKER_FEE = 0.0125;
 
-	public static double calculateTotalBrokerFee(Account[] accounts) {
+	//compute the total fee
+	public static double calculateTotalFee(Account[] accounts) {
 
 		double totalFee = 0.0;
 
@@ -23,6 +24,7 @@ public class BrokerService {
 		return totalFee;
 	}
 
+	//compute the interest principal for each account
 	public static double computeInterestPrincipal(double loanValue, double rate, int daysActive) {
 
 		if (rate <= 0) {
