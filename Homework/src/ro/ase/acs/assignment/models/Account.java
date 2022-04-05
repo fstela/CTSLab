@@ -1,64 +1,63 @@
 package ro.ase.acs.assignment.models;
 
 public class Account {
-	public double loan_value, rate;
-	public int daysActive, account_Type;
-	public static final int STANDARD = 0, BUDGET = 1, PREMIUM = 2, SUPER_PREMIUM = 3;
+	private double loanValue, rate;
+	private int daysActive;
+	private AccountType accountType;
 
-	public double loan() {
-		System.out.println("The loan value is " + this.loan_value);
-		return loan_value;
+	public double getLoan() {
+		System.out.println("The loan value is " + this.loanValue);
+		return this.loanValue;
 	}
 
 	public double getRate() {
-		System.out.println("The rate is " + rate);
+		System.out.println("The rate is " + this.rate);
 		return this.rate;
 	}
 
 	// must have method - the lead has requested it in all classes
 	public double getMonthlyRate() {
-		return loan_value * rate;
+		return loanValue * rate;
 	}
 
 	public void setValue(double value) throws Exception {
 		if (value < 0)
 			throw new Exception();
 		else {
-			loan_value = value;
+			this.loanValue = value;
 		}
 	}
 
-	public String to_string() {
-		return "Loan: " + this.loan_value + "; rate: " + this.rate + "; days active:" + daysActive + "; Type: "
-				+ account_Type + ";";
+	@Override
+	public String toString() {
+		return "Loan: " + this.loanValue + "; rate: " + this.rate + "; days active:" + this.daysActive + "; Type: "
+				+ this.accountType + ";";
 	}
 
-	public void print() {
-		int vb = 10;
+	public void printAccount() {
 		System.out.println("This is an account");
 	}
 
-	public static double calculate(Account[] accounts) {
+	public static double calculateTotalFee(Account[] accounts) {
 		double totalFee = 0.0;
 		Account account;
-		int temp = 365;
 		for (int i = 0; i < accounts.length; i++) {
 			account = accounts[i];
-			if (account.account_Type == Account.PREMIUM || account.account_Type == Account.SUPER_PREMIUM)
+			if (account.accountType == AccountType.PREMIUM || account.accountType == AccountType.SUPER_PREMIUM)
 				totalFee += .0125 * ( // 1.25% broker's fee
-				account.loan_value * Math.pow(account.rate, (account.daysActive / 365)) - account.loan_value); // interest-principal
+				account.loanValue * Math.pow(account.rate, (account.daysActive / 365)) - account.loanValue); // interest-principal
 		}
 		return totalFee;
 	}
 
-	public Account(double value, double rate, int account_Type) throws Exception {
+	public Account(double value, double rate, AccountType accountType) throws Exception {
 		if (value < 0)
 			throw new Exception();
 		else {
-			loan_value = value;
+			this.loanValue = value;
 		}
 		this.rate = rate;
-		this.account_Type = account_Type;
+		this.accountType = accountType;
 	}
 
 }
