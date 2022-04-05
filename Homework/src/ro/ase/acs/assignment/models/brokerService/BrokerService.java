@@ -1,6 +1,8 @@
-package ro.ase.acs.assignment.models.account;
+package ro.ase.acs.assignment.models.brokerService;
 
 import ro.ase.acs.assignment.exceptions.InvalidPowerException;
+import ro.ase.acs.assignment.models.account.Account;
+import ro.ase.acs.assignment.models.account.AccountType;
 
 public class BrokerService {
 
