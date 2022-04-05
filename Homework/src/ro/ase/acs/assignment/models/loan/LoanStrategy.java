@@ -1,5 +1,6 @@
 package ro.ase.acs.assignment.models.loan;
 
+import ro.ase.acs.assignment.exceptions.InvalidRateException;
 import ro.ase.acs.assignment.interfaces.LoanStrategyInterface;
 
 public class LoanStrategy implements LoanStrategyInterface {
@@ -8,6 +9,12 @@ public class LoanStrategy implements LoanStrategyInterface {
 	private double loanValue;
 	private double rate;
 
+	public void setLoanValue(double loanValue) {
+		if(loanValue<=0) {
+			throw new InvalidRateException();
+		}
+	}
+	
 	public int getDaysActive() {
 		return daysActive;
 	}
@@ -23,7 +30,10 @@ public class LoanStrategy implements LoanStrategyInterface {
 	public LoanStrategy() {
 	}
 
-	public LoanStrategy(double loanValue, double rate) {
+
+	public LoanStrategy(int daysActive, double loanValue, double rate) {
+		super();
+		this.daysActive = daysActive;
 		this.loanValue = loanValue;
 		this.rate = rate;
 	}

@@ -1,6 +1,6 @@
 package ro.ase.acs.assignment.models.brokerService;
 
-import ro.ase.acs.assignment.exceptions.InvalidPowerException;
+import ro.ase.acs.assignment.exceptions.InvalidRateException;
 import ro.ase.acs.assignment.models.account.Account;
 import ro.ase.acs.assignment.models.account.AccountType;
 
@@ -26,7 +26,7 @@ public class BrokerService {
 	public static double computeInterestPrincipal(double loanValue, double rate, int daysActive) {
 
 		if (rate <= 0) {
-			throw new InvalidPowerException();
+			throw new InvalidRateException();
 		}
 		return loanValue * (Math.pow(rate, daysActive / 365) - 1);
 	}
