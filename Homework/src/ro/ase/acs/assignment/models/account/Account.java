@@ -12,10 +12,6 @@ public class Account {
 		return accountType;
 	}
 
-	public double getMonthlyRate() {
-		return this.loanStrategy.getMonthlyRate();
-	}
-
 	public void printAccount() {
 		System.out.println("This is an account");
 	}
