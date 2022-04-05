@@ -11,10 +11,6 @@ public class Account {
 		return accountType;
 	}
 
-	public void printAccount() {
-		System.out.println("This is an account");
-	}
-
 	public LoanStrategy getLoanStrategy() {
 		return this.loanStrategy;
 	}
@@ -32,7 +28,6 @@ public class Account {
 	}
 
 	public Account(LoanStrategy loanStrategy, AccountType accountType) {
-
 		if (loanStrategy != null)
 			this.loanStrategy = loanStrategy;
 		this.accountType = accountType;

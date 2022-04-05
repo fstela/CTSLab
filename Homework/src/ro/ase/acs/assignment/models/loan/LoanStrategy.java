@@ -1,5 +1,6 @@
 package ro.ase.acs.assignment.models.loan;
 
+import ro.ase.acs.assignment.exceptions.InvalidLoanValueException;
 import ro.ase.acs.assignment.exceptions.InvalidRateException;
 import ro.ase.acs.assignment.interfaces.LoanStrategyInterface;
 
@@ -10,6 +11,12 @@ public class LoanStrategy implements LoanStrategyInterface {
 	private double rate;
 
 	public void setLoanValue(double loanValue) {
+		if(loanValue<=0) {
+			throw new InvalidLoanValueException();
+		}
+	}
+	
+	public void setRate(double rate) {
 		if(loanValue<=0) {
 			throw new InvalidRateException();
 		}
