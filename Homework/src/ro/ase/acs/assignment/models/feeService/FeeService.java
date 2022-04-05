@@ -1,10 +1,10 @@
-package ro.ase.acs.assignment.models.brokerService;
+package ro.ase.acs.assignment.models.feeService;
 
 import ro.ase.acs.assignment.exceptions.InvalidRateException;
 import ro.ase.acs.assignment.models.account.Account;
 import ro.ase.acs.assignment.models.account.AccountType;
 
-public class BrokerService {
+public class FeeService {
 
 	static final double BROKER_FEE = 0.0125;
 
@@ -17,7 +17,7 @@ public class BrokerService {
 
 			if (account.getAccountType() == AccountType.PREMIUM	|| account.getAccountType() == AccountType.SUPER_PREMIUM) {
 
-				totalFee += BROKER_FEE * BrokerService.computeInterestPrincipal(account.getLoanStrategy().getLoanValue(),
+				totalFee += BROKER_FEE * FeeService.computeInterestPrincipal(account.getLoanStrategy().getLoanValue(),
 						account.getLoanStrategy().getRate(), account.getLoanStrategy().getDaysActive()); // interest-principal
 			}
 		}
