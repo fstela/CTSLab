@@ -16,14 +16,14 @@ public class BrokerService {
 
 			if (account.getAccountType() == AccountType.PREMIUM	|| account.getAccountType() == AccountType.SUPER_PREMIUM) {
 
-				totalFee += BROKER_FEE * BrokerService.computeInterestRate(account.getLoanStrategy().getLoanValue(),
+				totalFee += BROKER_FEE * BrokerService.computeInterestPrincipal(account.getLoanStrategy().getLoanValue(),
 						account.getLoanStrategy().getRate(), account.getLoanStrategy().getDaysActive()); // interest-principal
 			}
 		}
 		return totalFee;
 	}
 
-	public static double computeInterestRate(double loanValue, double rate, int daysActive) {
+	public static double computeInterestPrincipal(double loanValue, double rate, int daysActive) {
 
 		if (rate <= 0) {
 			throw new InvalidPowerException();
