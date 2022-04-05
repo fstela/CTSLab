@@ -1,4 +1,4 @@
-package assignment;
+package ro.ase.acs.assignment.models;
 
 public class Account {
 	public double loan_value, rate;
