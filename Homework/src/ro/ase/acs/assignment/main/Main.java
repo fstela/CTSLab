@@ -12,7 +12,7 @@ public class Main {
 		LoanStrategy loanStrategy = new LoanStrategy(101, 20000, 0.10);
 		LoanStrategy loanStrategy2 = new LoanStrategy(365, 50000, 0.15);
 		Account account = new Account(loanStrategy, AccountType.PREMIUM);
-		Account account2 = new Account(loanStrategy, AccountType.SUPER_PREMIUM);
+		Account account2 = new Account(loanStrategy2, AccountType.SUPER_PREMIUM);
 		Account[] accounts = new Account[2];
 		accounts[0] = account;
 		accounts[1] = account2;
